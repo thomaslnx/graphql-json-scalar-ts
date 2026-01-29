@@ -1,0 +1,6 @@
+node_modules/
+dist/
+disc-cjs/
+*.log
+.DS_Store
+coverage/
