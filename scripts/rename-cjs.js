@@ -15,9 +15,15 @@ if (!existsSync(distCjsDir)) {
 const files = readdirSync(distCjsDir, { recursive: true });
 
 for (const file of files) {
-  if (typeof file === "string" && file.endsWith(".js")) {
+  if (
+    typeof file === "string" &&
+    (file.endsWith(".js") || file.endsWith(".js.map"))
+  ) {
     const oldPath = join(distCjsDir, file);
-    const newPath = join(distDir, file.replace(/\.js$/, ".cjs"));
+    const newPath = join(
+      distDir,
+      file.replace(/\.js$/, ".cjs").replace(/\.map$/, ".map"),
+    );
     const newDir = dirname(newPath);
 
     /* Ensure directory exists */
