@@ -23,8 +23,14 @@
     "dist"
   ],
   "scripts": {
+    "build": "npm run build:esm && npm run build:cjs && npm run build:rename",
+    "build:esm": "tsc --project tsconfig.build.json --module ESNext --outDir dist",
+    "build:cjs": "tsc --project tsconfig.build.json --module CommonJS --outDir dist-cjs",
+    "build:rename": "node scripts/rename-cjs.js",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build && npm run test"
   },
   "keywords": [
     "graphql",
