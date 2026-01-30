@@ -9,7 +9,7 @@ import {
   ObjectValueNode,
   StringValueNode,
 } from "graphql";
-import { isJSONValue, JSONScalar, type JSONValue } from "../index";
+import { isJSONValue, JSONScalar, type JSONValue } from "../src/index";
 
 describe("JSONScalar", () => {
   describe("serialize", () => {
