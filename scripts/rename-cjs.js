@@ -1,4 +1,4 @@
-import { readdirSync, renameSync, rmSync, existsSync } from "fs";
+import { readdirSync, renameSync, rmSync, existsSync, mkdirSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 
@@ -28,9 +28,7 @@ for (const file of files) {
 
     /* Ensure directory exists */
     if (!existsSync(newDir)) {
-      import("fs").then(({ mkdirSync }) => {
-        mkdirSync(newDir, { recursive: true });
-      });
+      mkdirSync(newDir, { recursive: true });
     }
 
     renameSync(oldPath, newPath);

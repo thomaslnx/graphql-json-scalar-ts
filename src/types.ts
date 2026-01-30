@@ -51,7 +51,7 @@ export function isJSONValue(value: unknown): value is JSONValue {
 
   /* Check if it's a plain object */
   if (typeof value === "object" && value !== null) {
-    /* Reject if jas a constructor that's not Object */
+    /* Reject if has a constructor that's not Object */
     if (value.constructor !== Object && value.constructor !== undefined) {
       return false;
     }
