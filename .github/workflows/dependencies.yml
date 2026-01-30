@@ -1,0 +1,44 @@
+name: Update Dependencies
+
+on:
+  schedule:
+    # Run every Monday at 9 AM UTC
+    - cron: "0 9 * * 1"
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  update-dependencies:
+    name: Update Dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      # Option 2: Use npm-check-updates
+      - name: Check for updates
+        run: |
+          npm install -g npm-check-updates
+          ncu --upgrade
+          npm install
+
+      - name: Run tests
+        run: npm test
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore: update dependencies"
+          title: "chore: update dependencies"
+          body: |
+            Automated dependency update
+
+            - Updated all dependencies to latest versions
+            - All tests passing
+          branch: chore/update-dependencies

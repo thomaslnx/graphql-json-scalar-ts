@@ -1,0 +1,69 @@
+version: 2
+updates:
+  # Enable version updates for npm
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 10
+    reviewers:
+      - "thomaslnx"
+    labels:
+      - "dependencies"
+      - "automated"
+      - "npm"
+    commit-message:
+      prefix: "chore"
+      prefix-development: "chore"
+      include: "scope"
+    # Group updates for minor/patch versions
+    groups:
+      production-dependencies:
+        dependency-type: "production"
+        update-types:
+          - "minor"
+          - "patch"
+      development-dependencies:
+        dependency-type: "development"
+        update-types:
+          - "minor"
+          - "patch"
+
+      # Keep GraphQL updates separate (important for compatibility)
+      graphql-ecosystem:
+        dependency-type: "production"
+        patterns:
+          - "graphql"
+        update-types:
+          - "minor"
+          - "patch"
+
+      # Ignore major version updates for critical dependencies
+      # (Review these manually)
+      ignore:
+        - dependency-name: "graphql"
+          update-types: ["version-update:semver-major"]
+        - dependency-name: "typescript"
+          update-types: ["version-update:semver-major"]
+
+  # Enable version updates for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 5
+    labels:
+      - "github-actions"
+      - "automated"
+      - "ci/cd"
+    commit-message:
+      prefix: "ci"
+      include: "scope"
+    groups:
+      github-actions:
+        patterns:
+          - "*"
