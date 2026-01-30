@@ -143,7 +143,7 @@ describe("JSONScalar", () => {
         kind: Kind.INT,
         value: "42",
       };
-      expect(JSONScalar.parseLiteral(ast, {})).toBe("42");
+      expect(JSONScalar.parseLiteral(ast, {})).toBe(42);
     });
 
     it("should parse FloatValue", () => {
@@ -151,7 +151,7 @@ describe("JSONScalar", () => {
         kind: Kind.FLOAT,
         value: "3.14",
       };
-      expect(JSONScalar.parseLiteral(ast, {})).toBe("3.14");
+      expect(JSONScalar.parseLiteral(ast, {})).toBe(3.14);
     });
 
     it("should parse BooleanValue", () => {
@@ -183,7 +183,7 @@ describe("JSONScalar", () => {
           { kind: Kind.INT, value: "3" },
         ],
       };
-      expect(JSONScalar.parseLiteral(ast, {})).toEqual(["1", "2", "3"]);
+      expect(JSONScalar.parseLiteral(ast, {})).toEqual([1, 2, 3]);
     });
 
     it("should parse ObjectValue", () => {
@@ -202,7 +202,7 @@ describe("JSONScalar", () => {
           },
         ],
       };
-      expect(JSONScalar.parseLiteral(ast, {})).toEqual({ a: "1", b: "test" });
+      expect(JSONScalar.parseLiteral(ast, {})).toEqual({ a: 1, b: "test" });
     });
 
     it("should parse nested ObjectValue", () => {
@@ -225,7 +225,7 @@ describe("JSONScalar", () => {
           },
         ],
       };
-      expect(JSONScalar.parseLiteral(ast, {})).toEqual({ a: { b: "2" } });
+      expect(JSONScalar.parseLiteral(ast, {})).toEqual({ a: { b: 2 } });
     });
 
     it("should parse nested ListValue", () => {
@@ -247,7 +247,7 @@ describe("JSONScalar", () => {
           },
         ],
       };
-      expect(JSONScalar.parseLiteral(ast, {})).toEqual([["1", "2"]]);
+      expect(JSONScalar.parseLiteral(ast, {})).toEqual([[1, 2]]);
     });
 
     it("should throw on unsupported AST node types", () => {
@@ -297,7 +297,7 @@ describe("JSONScalar", () => {
       );
       expect(serialized).toEqual(value);
       expect(parsed).toEqual(value);
-      expect(literal).toEqual({ a: "1", b: "test", c: ["1", "2", "3"] });
+      expect(literal).toEqual({ a: 1, b: "test", c: [1, 2, 3] });
     });
   });
 
