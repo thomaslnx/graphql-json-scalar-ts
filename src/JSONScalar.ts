@@ -49,10 +49,16 @@ function parseValue(value: unknown): JSONValue {
 function parseLiteral(ast: ValueNode): JSONValue {
   switch (ast.kind) {
     case Kind.STRING:
+      return ast.value;
+
     case Kind.INT:
+      return parseInt(ast.value, 10);
+
     case Kind.FLOAT:
+      return parseFloat(ast.value);
+
     case Kind.BOOLEAN:
-      return ast.value as string | number | boolean;
+      return ast.value;
 
     case Kind.NULL:
       return null;
