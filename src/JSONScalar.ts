@@ -26,7 +26,7 @@ function serialize(value: unknown): JSONValue {
  * Parses a value from a GraphQL variable or argument
  */
 function parseValue(value: unknown): JSONValue {
-  /* Handle Data Objects */
+  /* Handle Date Objects */
   if (value instanceof Date) {
     return value.toISOString();
   }
@@ -44,7 +44,7 @@ function parseValue(value: unknown): JSONValue {
 
 /**
  * Parses a value from a GraphQL AST literal.
- * Handles StringValue, IntValue, FLoatValue, BooleanValue, NullValue, ObjectValue, and ListValue.
+ * Handles StringValue, IntValue, FloatValue, BooleanValue, NullValue, ObjectValue, and ListValue.
  */
 function parseLiteral(ast: ValueNode): JSONValue {
   switch (ast.kind) {
