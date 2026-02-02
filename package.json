@@ -1,6 +1,6 @@
 {
   "name": "@thomaslnx/graphql-json-scalar-ts",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A GraphQL JSON scalar with excellent TypeScript support",
   "type": "module",
   "main": "./dist/index.cjs",
