@@ -1,5 +1,14 @@
 # @thomaslnx/graphql-json-scalar-ts
 
+[![npm version](https://img.shields.io/npm/v/@thomaslnx/graphql-json-scalar-ts.svg)](https://www.npmjs.com/package/@thomaslnx/graphql-json-scalar-ts)
+[![npm downloads](https://img.shields.io/npm/dm/@thomaslnx/graphql-json-scalar-ts.svg)](https://www.npmjs.com/package/@thomaslnx/graphql-json-scalar-ts)
+[![npm bundle size](https://img.shields.io/bundlephobia/minzip/@thomaslnx/graphql-json-scalar-ts)](https://bundlephobia.com/package/@thomaslnx/graphql-json-scalar-ts)
+[![GitHub stars](https://img.shields.io/github/stars/thomaslnx/graphql-json-scalar-ts.svg)](https://github.com/thomaslnx/graphql-json-scalar-ts/stargazers)
+[![GitHub license](https://img.shields.io/github/license/thomaslnx/graphql-json-scalar-ts.svg)](https://github.com/thomaslnx/graphql-json-scalar-ts/blob/main/LICENSE)
+[![CI](https://github.com/thomaslnx/graphql-json-scalar-ts/actions/workflows/ci.yml/badge.svg)](https://github.com/thomaslnx/graphql-json-scalar-ts/actions/workflows/ci.yml)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue.svg)](https://www.typescriptlang.org/)
+[![Node.js](https://img.shields.io/node/v/@thomaslnx/graphql-json-scalar-ts.svg)](https://nodejs.org/)
+
 A production-ready GraphQL JSON scalar with excellent TypeScript support.
 
 ## Why This Package Exists
